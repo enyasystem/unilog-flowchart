@@ -1,0 +1,40 @@
+flowchart TD
+    START([ Start]) --> VISIT[User visits InternTrack eLogbook System]
+    VISIT --> LOGIN[ Login Page]
+    LOGIN --> AUTH[ Authenticate Credentials]
+    AUTH --> ROLE[ Identify User Role]
+    
+    ROLE --> DECISION{ User Role?}
+    
+    
+    DECISION -->| Student| STUDENT[ Student Portal<br/> Log Activities<br/> View Feedback<br/>Track Progress]
+    DECISION -->| Supervisor| SUPERVISOR[ Supervisor Portal<br/> Review Logs<br/> Provide Feedback<br/> Approve Activities]
+    DECISION -->| Organisation/Company| ORG[ Organisation Portal<br/> View Reports<br/> Track Interns<br/> Generate Analytics]
+    DECISION -->| Admin| ADMIN[
+     Admin Dashboard<br/> Manage Users & Roles<br/> System Settings<br/> System Analytics]
+
+
+    STUDENT --> LOG[ Student logs daily/weekly activities]
+    LOG --> REVIEW[Supervisor reviews logs]
+    REVIEW --> FEEDBACK[ Supervisor gives feedback/approval]
+    FEEDBACK --> CHECK{ Internship Complete?}
+    CHECK -->| No| LOG
+    CHECK -->| Yes| COMPLETE[ Process Complete]
+    
+   
+    SUPERVISOR --> MONITOR
+    ORG --> MONITOR
+    MONITOR --> MAINTAIN[ System Maintenance & Oversight]
+     ADMIN --> MONITOR[ Admin monitors system]
+
+    COMPLETE --> END([End])
+    MAINTAIN --> END
+    
+    style START fill:#4CAF50,stroke:#2E7D32,stroke-width:3px,color:#fff
+    style END fill:#FF5722,stroke:#D84315,stroke-width:3px,color:#fff
+    style DECISION fill:#2196F3,stroke:#1976D2,stroke-width:2px,color:#fff
+    style CHECK fill:#9C27B0,stroke:#7B1FA2,stroke-width:2px,color:#fff
+    style ADMIN fill:#FFC107,stroke:#F57C00,stroke-width:2px
+    style STUDENT fill:#00BCD4,stroke:#0097A7,stroke-width:2px
+    style SUPERVISOR fill:#8BC34A,stroke:#689F38,stroke-width:2px
+    style ORG fill:#FF9800,stroke:#F57C00,stroke-width:2px
