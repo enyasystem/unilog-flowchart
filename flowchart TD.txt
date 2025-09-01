@@ -2,7 +2,9 @@ flowchart TD
     START([ Start]) --> VISIT[User visits InternTrack eLogbook System]
     VISIT --> LOGIN[ Login Page]
     LOGIN --> AUTH[ Authenticate Credentials]
-    AUTH --> ROLE[ Identify User Role]
+    %% Authentication outcome: valid -> identify role, invalid -> stay on login
+    AUTH -->|Authenticated / Valid| ROLE[ Identify User Role]
+    AUTH -->|Not Authenticated / Invalid| LOGIN[ Login Page\nShow error & remain on login]
     
     ROLE --> DECISION{ User Role?}
     

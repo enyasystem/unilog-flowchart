@@ -17,9 +17,11 @@
     <div class="mermaid">
 flowchart TD
     START([ Start]) --> VISIT[User visits Unilog System]
-    VISIT --> LOGIN[ Login/Register ]
-    LOGIN --> AUTH[ Authenticate Credentials]
-    AUTH --> ROLE[ Identify User Role]
+  VISIT --> LOGIN[ Login/Register ]
+  LOGIN --> AUTH[ Authenticate Credentials]
+  %% Authentication outcome: valid -> identify role, invalid -> remain on login page
+  AUTH -->|Authenticated / Valid| ROLE[ Identify User Role]
+  AUTH -->|Not Authenticated / Invalid| LOGIN[ Login/Register\nShow error & remain on login]
     
     ROLE --> DECISION{ User Role}
     
