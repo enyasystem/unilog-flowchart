@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Unilog System Flowchart</title>
+  <title>SIWESS APP Flowchart</title>
   <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
   <style>
     body { font-family: system-ui, Arial, sans-serif; padding: 1rem; background:#f6f7fb; }
@@ -13,10 +13,10 @@
 </head>
 <body>
   <div class="container">
-    <h1 style="text-align: center;">Unilog Flowchart</h1>
+    <h1 style="text-align: center;">SIWESS APP Flowchart</h1>
     <div class="mermaid">
 flowchart TD
-    START([ Start]) --> VISIT[User visits Unilog System]
+    START([ Start]) --> VISIT[User visits SIWESS APP]
   VISIT --> LOGIN[ Login/Register ]
   LOGIN --> AUTH[ Authenticate Credentials]
   %% Authentication outcome: valid -> identify role, invalid -> remain on login page
@@ -30,7 +30,7 @@ flowchart TD
 
     DECISION -->| Student| STUDENT[ Student Portal<br/> Log Activities<br/> View Feedback<br/>Track Progress]
     DECISION -->| Organisation/Company| ORG[ Organisation Portal<br/> View Reports<br/> Track Interns<br/> Generate Analytics]
-    DECISION -->| Admin  / ITF Admin| ADMIN[
+    DECISION -->| ITF Admin| ADMIN[
      Admin Dashboard<br/> Manage Users & Roles<br/> System Settings<br/> System Analytics<br/> Approve Company Registrations<br/> Print Student Reports]
 
 
